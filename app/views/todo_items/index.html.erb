@@ -4,8 +4,11 @@
   <% @todo_list.todo_items.each do |item| %>
     <tr id="<%= dom_id(item) %>">
       <td><%= item.content %></td>
-      <td><%= link_to 'Edit', edit_todo_list_todo_item_path(@todo_list, item) %></td>
-      <td><%= link_to 'Destroy', todo_list_todo_item_path(@todo_list, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td>
+        <%= link_to 'Mark Complete', complete_todo_list_todo_item_path(item), method: :patch %>
+        <%= link_to 'Edit', edit_todo_list_todo_item_path(item) %>
+        <%= link_to 'Destroy', todo_list_todo_item_path(item), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </td>
     </tr>
   <% end %>
 </table>
