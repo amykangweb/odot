@@ -24,6 +24,7 @@ RSpec.configure do |c|
 end
 
 RSpec.configure do |config|
+  config.include TodoListHelpers, type: :feature
   # Turn off deprecation warnings
   config.mock_with :rspec do |c|
     c.syntax = [:should, :expect]
